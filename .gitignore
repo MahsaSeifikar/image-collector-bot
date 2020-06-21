@@ -1,3 +1,9 @@
+
+*.log
+*.pot
+*.pyc
+__pycache__/
+
 .idea
 /env
 *.jpg

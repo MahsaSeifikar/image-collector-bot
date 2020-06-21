@@ -1,4 +1,4 @@
-ACCESS_TOKEN = "1209556211:AAFgUkG4LEe9Kysp44-X-PCKerUBEyzj14I"
+ACCESS_TOKEN = "XXXXX"
 
 WELCOME_MESSAGE = """🔸 سلام! خوش آمدید.
 

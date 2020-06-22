@@ -1,4 +1,4 @@
-# image_collector_bot
+# Image Collector Telegram Bot
 
 
 

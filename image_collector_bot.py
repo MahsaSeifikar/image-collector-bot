@@ -1,7 +1,9 @@
+import time
 import logging
 from telebot import TeleBot, types
 from simple_settings import settings
 
+logging.basicConfig(filename='bot_log.log', filemode='a', level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 bot = TeleBot(settings.ACCESS_TOKEN)
@@ -22,7 +24,7 @@ photo_name = None
 # Handle '/start'
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
-    logger.info(message)
+    logger.warning(message)
     bot.reply_to(message, settings.WELCOME_MESSAGE)
     bot.send_message(message.chat.id, settings.RIGHT_SAMPLE_MESSAGE, reply_markup=markup)
     photo = open('data_set/sample.png', 'rb')
@@ -46,7 +48,7 @@ def save_photo(message):
         # todo write in hdfs.
         # hdfsclient = InsecureClient(settings.HDFS_URL, user='m.seifikar')
         # hdfsclient.upload(settings.HDFS_DATA_PATH, image_name)
-        logger.info('A new photo saved {}'.format(message))
+        logger.warning('A new photo saved {}'.format(message))
         photo_name = None
         bot.send_message(message.chat.id,
                          settings.CHOOSE_BUTTON_MESSAGE,
@@ -60,7 +62,7 @@ def save_photo(message):
 # Handle all other messages with content_type 'text' specially when a button clicked.
 @bot.message_handler(func=lambda message: True)
 def echo_message(message):
-    logger.info(message)
+    logger.warning(message)
     global photo_name
     if message.text == 'عکس سلفی':
         photo_name = 'selfie'
@@ -76,4 +78,8 @@ def echo_message(message):
         bot.reply_to(message, 'با تشکر از همکاری شما.')
 
 
-bot.polling()
+try:
+    bot.polling(none_stop=True)
+except Exception as err:
+    logger.error(err)
+    time.sleep(5)

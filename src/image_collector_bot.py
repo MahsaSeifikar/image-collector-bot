@@ -27,7 +27,7 @@ def send_welcome(message):
     logger.warning(message)
     bot.reply_to(message, settings.WELCOME_MESSAGE)
     bot.send_message(message.chat.id, settings.RIGHT_SAMPLE_MESSAGE, reply_markup=markup)
-    photo = open('data_set/sample.png', 'rb')
+    photo = open('../data_set/sample.png', 'rb')
     bot.send_photo(message.chat.id, photo)
     bot.send_message(message.chat.id, settings.CHOOSE_BUTTON_MESSAGE, reply_markup=markup)
 

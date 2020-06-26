@@ -45,9 +45,6 @@ def save_photo(message):
         with open(image_path, 'wb') as new_file:
             new_file.write(downloaded_file)
 
-        # todo write in hdfs.
-        # hdfsclient = InsecureClient(settings.HDFS_URL, user='m.seifikar')
-        # hdfsclient.upload(settings.HDFS_DATA_PATH, image_name)
         logger.warning('A new photo saved {}'.format(message))
         photo_name = None
         bot.send_message(message.chat.id,
@@ -78,8 +75,9 @@ def echo_message(message):
         bot.reply_to(message, 'با تشکر از همکاری شما.')
 
 
-try:
-    bot.polling(none_stop=True)
-except Exception as err:
-    logger.error(err)
-    time.sleep(5)
+while True:
+    try:
+        bot.polling(none_stop=True)
+    except Exception as err:
+        logger.error(err)
+        time.sleep(5)

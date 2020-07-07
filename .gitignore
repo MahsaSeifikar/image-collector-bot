@@ -6,5 +6,5 @@
 
 
 .idea
-/env
+/venv
 *.jpg

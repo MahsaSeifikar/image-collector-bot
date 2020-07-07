@@ -11,6 +11,6 @@ WORKDIR /home/
 RUN pip install -r requirements.txt
 
 
-RUN export SIMPLE_SETTINGS=/home/settings
+# RUN export SIMPLE_SETTINGS=settings
 
-CMD [ "python", "/home/image_collector_bot.py" ]
+CMD [ "python", "image_collector_bot.py", "--settings=settings" ]

@@ -15,7 +15,7 @@ In first step, build your docker image:
 Then run the docker image:
     ``` docker run image_collector_bot```
 
-### In local
+### In Terminal
 1. Set SIMPLE-SETTING environment variable:
     
     ```export SIMPLE_SETTINGS=settings```

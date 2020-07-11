@@ -1,6 +1,6 @@
 # Image Collector Telegram Bot
 
-If we want to have a great result from Machine Leaning Algorithms, we should provide them a lot fuel for them.
+If we want to have a great result from Machine Leaning Algorithms, we should provide them a lot fuel.
 **Data is Fuel.** 
 
 In this repository, a telegram bot is implemented to collect data which is people's selfie photo and national photo to use in _Face Verification_ problem.
